@@ -1,0 +1,30 @@
+{
+  "query_id": "223",
+  "timestamp": "2025-10-22T14:17:02.908164",
+  "model": "utmb-openai-gpt4o",
+  "temperature": 0,
+  "original_query": "Recommended treatment for acute gout flare in a patient, Jane D., 52 yo female, with chronic kidney disease, seen at Springfield Clinic last week, MRN 123-45-6789.",
+  "ground_truth_phi": "NAME: Jane D. | GEOGRAPHIC_LOCATION: Springfield Clinic | DATE: last week | MEDICAL_RECORD_NUMBER: 123-45-6789",
+  "ground_truth_phi_count": 4,
+  "system_prompt": "You are a HIPAA-compliant deidentification expert. Detect and redact ALL Protected Health Information (PHI).\n\nHIPAA IDENTIFIERS (18 categories you MUST detect):\n1. NAME - Patient, provider, family member names\n2. GEOGRAPHIC_LOCATION - Cities, states, hospitals, clinics, addresses, zip codes\n3. DATE - Birth dates, admission/discharge dates, death dates, treatment dates (EXCEPT year alone)\n4. PHONE_NUMBER - Telephone numbers, fax numbers\n5. FAX_NUMBER - Fax numbers\n6. EMAIL_ADDRESS - Email addresses\n7. SOCIAL_SECURITY_NUMBER - SSN or national ID\n8. MEDICAL_RECORD_NUMBER - Medical record numbers, patient IDs\n9. HEALTH_PLAN_BENEFICIARY_NUMBER - Insurance/plan numbers\n10. ACCOUNT_NUMBER - Account numbers\n11. CERTIFICATE_LICENSE_NUMBER - Certificate/license numbers\n12. VEHICLE_IDENTIFIER - VIN, license plate numbers\n13. DEVICE_IDENTIFIER - Device serial numbers\n14. WEB_URL - Web URLs\n15. IP_ADDRESS - IP addresses\n16. BIOMETRIC_IDENTIFIER - Fingerprints, voice prints, retinal scans\n17. PHOTO - Full-face photos or comparable images\n18. UNIQUE_IDENTIFIER - Any other unique identifying number\n\nINSTRUCTIONS:\n- Replace each PHI with [REDACTED_TYPE] where TYPE is the category\n- Be thorough - catch ALL identifiers\n- Output ONLY the redacted text, no explanations",
+  "user_prompt": "Deidentify this clinical query:\n\nRecommended treatment for acute gout flare in a patient, Jane D., 52 yo female, with chronic kidney disease, seen at Springfield Clinic last week, MRN 123-45-6789.\n\nOutput ONLY the redacted query with [REDACTED_TYPE] markers.",
+  "gpt4o_output": "Recommended treatment for acute gout flare in a patient, [REDACTED_NAME], [REDACTED_DATE] female, with chronic kidney disease, seen at [REDACTED_GEOGRAPHIC_LOCATION] last week, [REDACTED_MEDICAL_RECORD_NUMBER].",
+  "leak_detection": {
+    "leaked_phi_count": 1,
+    "leaked_phi_details": [
+      {
+        "type": "DATE",
+        "value": "last week"
+      }
+    ],
+    "status": "LEAK_DETECTED"
+  },
+  "metrics": {
+    "total_phi_entities": 4,
+    "successfully_redacted": 3,
+    "leaked_failures": 1,
+    "recall": "0.7500",
+    "precision": "1.0000",
+    "f1_score": "0.8571"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "run_date": "2025-10-22T14:28:00.149317",
+  "model": "utmb-openai-gpt4o",
+  "temperature": 0,
+  "total_queries_processed": 832,
+  "total_phi_entities": 2973,
+  "total_leaked_phi": 6,
+  "total_successfully_redacted": 2967,
+  "queries_with_leaks": 6,
+  "queries_perfect": 826,
+  "overall_recall": 0.9979818365287588,
+  "overall_precision": 1.0,
+  "overall_f1": 0.998989898989899
+}

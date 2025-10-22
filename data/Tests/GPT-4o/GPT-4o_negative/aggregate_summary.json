@@ -1,0 +1,12 @@
+{
+  "run_date": "2025-10-22T14:36:00.490776",
+  "model": "utmb-openai-gpt4o",
+  "temperature": 0,
+  "query_type": "NEGATIVE (No PHI)",
+  "total_queries_processed": 219,
+  "queries_correctly_unchanged": 7,
+  "queries_with_false_positives": 212,
+  "total_false_redactions": 335,
+  "specificity": 0.0319634703196347,
+  "precision": 0.0319634703196347
+}
